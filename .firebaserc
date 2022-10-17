@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "inglenook-e5595": {
+      "hosting": {
+        "MyAdmin": [
+          "inglenook-e5595"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "inglenook-e5595"
+  }
+}

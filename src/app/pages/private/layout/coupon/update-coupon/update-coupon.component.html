@@ -1,0 +1,77 @@
+
+
+
+<br>
+<br>
+<section id="contact" class="section-bg">
+                <div class="col-md-12">
+      <div class="form">
+
+        <form novalidate #f="ngForm" (ngSubmit)="onSubmit()">
+                <div class="container">
+                    <div class="card mb-4">
+
+                        <div class="card-body">
+               <div class="section-header">
+                <h3>Update Coupon</h3>
+                <p>Please enter below all information related to Coupon</p>
+                <hr>
+                <div class="row">
+                  <div  *ngIf="SuccessMessage.length>0" class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{SuccessMessage}}
+                </div>
+                <div  *ngIf="ErrorMessage.length>0" class="alert alert-danger alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  {{ErrorMessage}}
+              </div>
+                </div>
+              </div>
+                  <div class="row">
+                  
+                    <div class="form-group col-md-6">
+                      <input type="text" name='id'  class="form-control" id="Title" placeholder="Enter Title" 
+                      [(ngModel)]="coupon.id"
+                      required #id="ngModel"
+                      required />
+                      <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" name='Type'  class="form-control" id="Type" placeholder="Enter Type" 
+                      [(ngModel)]="coupon.type"
+                      required #type="ngModel"
+                      required />
+                      <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                    <input type="number" name='value'  class="form-control" id="value" placeholder="Enter value" 
+                    [(ngModel)]="coupon.value"
+                    required #value="ngModel"
+                    required />
+                      <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                    
+                      <input type="date" name='expiry_date'  class="form-control" id="expiry_date" placeholder="Enter expiry_date" 
+                      [(ngModel)]="coupon.expiry_date"
+                      required #expiry_date="ngModel"
+                      required />
+                    <div class="validate"></div>
+                  </div>
+                
+                  <div class="text-center"><button type="submit" class="btn btn-primary">Submit</button></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        </form>
+      </div> 
+
+
+ 
+
+</div>
+</section>
+
+

@@ -1,0 +1,79 @@
+<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <a class="nav-link"  routerLink='/private/dashboard'  routerLinkActive="active"> 
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Dashboard
+            </a>
+            <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseUMS" aria-expanded="false" aria-controls="collapseUMS">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Category Manager
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+
+
+            <div class="collapse" id="collapseUMS" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link"  routerLink='/private/categories'  routerLinkActive="active">
+                        Category List
+                    </a>
+                    <a class="nav-link"  routerLink='/private/addcategory'  routerLinkActive="active">
+                    Add new
+                    </a>
+                </nav>
+            </div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Product Manager
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseProduct" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link"  routerLink='/private/products'  routerLinkActive="active">Product List</a>
+                    <a class="nav-link" routerLink='/private/addproduct'  routerLinkActive="active" >Add product</a>
+                </nav>
+            </div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Order Manager
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link"  routerLink='/private/orders'  routerLinkActive="active" >Order List</a>
+                    <!-- <a class="nav-link" routerLink='/private/addorder'  routerLinkActive="active"  >Add order </a> -->
+
+                </nav>
+            </div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseShip" aria-expanded="false" aria-controls="collapseShip">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                Shipping Method Manager
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseShip" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" routerLink='/private/shipmethod'  routerLinkActive="active" >Shipping Method list</a>
+                    <a class="nav-link" routerLink='/private/addshipmethod'  routerLinkActive="active" >Add New</a>
+
+                </nav>
+            </div>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCoupon" aria-expanded="false" aria-controls="collapseCoupon">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+               Coupon Manager
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseCoupon" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link"  routerLink='/private/coupons'  routerLinkActive="active">Coupon list</a>
+                    <a class="nav-link" routerLink='/private/addcoupon'  routerLinkActive="active">Add New</a>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="sb-sidenav-footer">
+        <div class="small">Logged in as:</div>
+   
+    </div>
+</nav>

@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <h4 class="mt-4">Shipping method list</h4>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">Shipping method list</li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-table mr-1"></i>Shipping method List</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Duration</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                       
+                       
+                       
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cat of shippinglist;">
+                            <td>
+                                {{
+                                    cat.title
+                                }}
+                               
+                         </td>
+               <td>
+{{cat.duration}}
+               </td>
+               <td>
+                   {{
+                       cat.price
+                   }}
+                  
+            </td>
+            <td>
+                <a [routerLink]="['/private/updateshipmethod', cat.id]" class="button btn-primary">Update</a>
+                <a (click)="delete(cat.id)"  class="button btn-danger">Remove</a>
+            </td> 
+            
+         
+            
+           </tr>
+           
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

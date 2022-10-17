@@ -1,0 +1,264 @@
+<div class="login_body">
+  <div id="login-image"></div>
+
+  <div class="container-fluid login">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-6">
+        <div class="row mt-30 mb-30">
+          <div class="col-sm-11 text-center">
+            <div *ngIf="SuccessMessage.length > 0">
+              <div class="alert alert-Success">{{SuccessMessage}} click <a routerLink="/login" class="font_bold under_line">here </a> to login </div>
+            </div>
+          </div>
+          <div class="col-sm-11 text-center" *ngIf="SuccessMessage.length ==0">
+            <h1>Create an Account</h1>
+            <p>Already a Member? <a routerLink="/login" class="font_bold under_line">Login</a></p>
+            <div class="clear pad-5"></div>
+            <div class="well">
+              <form class="text-left" novalidate #f1="ngForm" (ngSubmit)="onSubmit(f1)">
+                <div *ngIf="ErrorMessage.length > 0">
+                  <div class="alert alert-danger">{{ErrorMessage}}</div>
+                </div>
+                <div class="row">
+
+
+                  <div class="form-group col-md-6">
+                    <label for="fnam">
+                      First Name
+                      <span *ngIf="FirstName.errors && (FirstName.dirty || FirstName.touched)">
+                        <span class="red" *ngIf="FirstName.errors.required">  * required </span>
+
+                      </span>
+                      <span *ngIf="(f1.form.controls.FirstName?.value.length >0 && f1.form.controls.FirstName?.value.length <3) && (FirstName.dirty || FirstName.touched)">
+                        <span class="red">Minimum 3 characters allowed.</span>
+
+                      </span>
+                    </label>
+                    <div class="input-group" [ngClass]="{
+										'has-error': FirstName.invalid && (FirstName.dirty || FirstName.touched),
+										'has-success': FirstName.valid && (FirstName.dirty || FirstName.touched)}">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                      <input type="text" class="form-control" minlength="3" placeholder="Enter your first name" aria-describedby="" name="FirstName" [(ngModel)]="model.FirstName"
+                             required #FirstName="ngModel">
+
+
+
+
+                    </div>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="lnam">
+                      Last Name
+                      <span *ngIf="LastName.errors && (LastName.dirty || LastName.touched)">
+                        <span class="red" *ngIf="LastName.errors.required"> * required</span>
+                      </span>
+                      <span *ngIf="(f1.form.controls.LastName?.value.length >0 && f1.form.controls.LastName?.value.length <3) && (LastName.dirty || LastName.touched)">
+                        <span class="red">Minimum 3 characters allowed.</span>
+                      </span>
+
+                    </label>
+                    <div class="input-group" [ngClass]="{
+										'has-error': LastName.invalid && (LastName.dirty || LastName.touched),
+										'has-success': LastName.valid && (LastName.dirty || LastName.touched)}">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                      <input type="text" class="form-control" minlength="3" placeholder="Enter your last name" aria-describedby="" name="LastName" [(ngModel)]="model.LastName"
+                             required #LastName="ngModel">
+
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="email">
+                    Email Address
+                    <span *ngIf="Email.errors && (Email.dirty || Email.touched)">
+                      <span class="red" *ngIf="Email.errors.required"> * required </span>
+                      <span class="red" *ngIf="Email.errors.pattern">Email must contain at least the @ and a. (dot) character</span>
+                    </span>
+
+                  </label>
+
+                  <div class="input-group" [ngClass]="{
+									'has-error': Email.invalid && (Email.dirty || Email.touched),
+									'has-success': Email.valid && (Email.dirty || Email.touched)}">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+
+                    <input type="email" class="form-control" placeholder="Enter your email address" aria-describedby="" name="Email" [(ngModel)]="model.Email"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required #Email="ngModel">
+
+                  </div>
+                </div>
+
+
+                <div class="row">
+
+
+                  <div class="form-group col-md-6">
+                    <label for="password">
+                      Password
+                      <span *ngIf="Password.errors && (Password.dirty || Password.touched)">
+                        <span class="red" *ngIf="Password.errors.required"> * required</span>
+                        <span class="red" *ngIf="Password.errors.minlength">Password must be 6 characters.</span>
+                      </span>
+
+                    </label>
+                    <div class="input-group" [ngClass]="{
+										'has-error': Password.invalid && (Password.dirty || Password.touched),
+										'has-success': Password.valid && (Password.dirty || Password.touched)}">
+                      <span class="input-group-addon"><i class="fa fa-lock "></i></span>
+
+                      <input type="password" minlength="6" class="form-control" placeholder="Enter password" aria-describedby="" name="Password" [(ngModel)]="model.Password"
+                             required #Password="ngModel">
+
+
+                    </div>
+
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="confirmpassword">
+                      Confirm Password
+                      <span class="red" *ngIf="(ConfirmPassword.dirty || ConfirmPassword.touched) && Password.value != ConfirmPassword.value">
+                        Confirm password not match
+                      </span>
+                    </label>
+                    <div class="input-group" [ngClass]="{
+										'has-error': (ConfirmPassword.dirty || ConfirmPassword.touched) && Password.value != ConfirmPassword.value,
+										'has-success': (ConfirmPassword.dirty || ConfirmPassword.touched) && Password.value == ConfirmPassword.value
+									  }">
+                      <span class="input-group-addon"><i class="fa fa-lock "></i></span>
+
+                      <input type="password" minlength="4" class="form-control" placeholder=" Enter confirm password" aria-describedby="" name="ConfirmPassword" [(ngModel)]="model.ConfirmPassword"
+                             required #ConfirmPassword="ngModel">
+
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="date">
+                      DOB
+                      <span *ngIf="DOB.errors && (DOB.dirty || DOB.touched)">
+                        <span class="red" *ngIf="DOB.errors.required"> * required</span>
+                      </span>
+                      <span class="red" *ngIf="DOB.value > is18yearold">
+                        DOB should be
+                        greater than 18 year
+                      </span>
+                    </label>
+                    <div class="input-group" [ngClass]="{'has-error' : DOB.invalid && (DOB.dirty || DOB.touched)|| (DOB.value>is18yearold),'has-success': DOB.valid && (DOB.dirty || DOB.touched)}">
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                      <input autocomplete="off" bsDatepicker type="text" class="form-control" aria-describedby="" name="DOB" [(ngModel)]="model.DOB" #DOB="ngModel" placeholder="dd/mm/yyyy" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" required [maxDate]="maxDate">
+                      <!--<input type="text" bsDatepicker class="form-control" name="DOB" [(ngModel)]="model.DOB" required #DOB="ngModel" placeholder="dd/mm/yyyy" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">-->
+
+
+                    </div>
+
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="date">
+                      Country
+                      <span *ngIf="CountryIsoCode.errors && (CountryIsoCode.dirty || CountryIsoCode.touched)">
+                        <span class="red" *ngIf="CountryIsoCode.errors.required"> * required </span>
+                      </span>
+                    </label>
+                    <div class="input-group" [ngClass]="{
+												'has-error': CountryIsoCode.invalid && (CountryIsoCode.dirty || CountryIsoCode.touched),
+												'has-success': CountryIsoCode.valid && (CountryIsoCode.dirty || CountryIsoCode.touched)}">
+                      <span class="input-group-addon" id="basic-addon1">
+                        <i class="fa fa-globe-americas"></i>
+                      </span>
+                      <select id="CountryIsoCode" class="form-control" [(ngModel)]="model.CountryIsoCode" name="CountryIsoCode" #CountryIsoCode="ngModel"
+                              required (change)="onCountryChange(CountryIsoCode.value)">
+                        <option value="" selected="selected">-- Select country --</option>
+                        <option *ngFor="let country of CommonService.SendingCountryList.country" [ngValue]="country.Iso3Code">{{ country.CountryName }}</option>
+                      </select>
+
+
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label for="phone">
+                      Code
+                      <!-- <span *ngIf="Code.errors && (Code.dirty || Code.touched)">
+            <span class="text_red" *ngIf="Code.errors.required"> Enter code </span>
+          </span> -->
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-globe fa-lg"></i></span>
+                      <input type="text" readonly class="form-control" name="Code" [(ngModel)]="model.PhoneCode"
+                             required #Code="ngModel">
+                    </div>
+                  </div>
+                  <div class="form-group col-md-8">
+                    <label for="number">
+                      Mobile Phone
+                      <span *ngIf="number.errors && (number.dirty || number.touched)">
+                        <span class="text_red" *ngIf="number.errors.required"> Enter phone </span>
+                      </span>
+                    </label>
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fas fa-mobile-alt fa-lg"></i></span>
+                      <input type="text" class="form-control" placeholder="Enter Mobile Phone"
+                             aria-describedby="" name="number" [(ngModel)]="model.PhoneNumber" required #number="ngModel" maxlength="10">
+                      <!-- <input class="form-control" placeholder="XXXXXXXXXXXX" id="phone" [(ngModel)]="model.Phone" type="text"> -->
+                    </div>
+                  </div>
+                </div>
+                <!--<div class="clear pad-5"></div>-->
+                <div class="checkbox text-left font_bold">
+                  <label>
+                    <input type="checkbox" (change)="isAgree($event)"> By clicking on "REGISTER" you are agreeing to <a href="https://www.hafizbros.com/gb/en/term.php" target="_blank">Terms & Conditions</a> and <a href="https://www.hafizbros.com/gb/en/privacy-policy.php" target="_blank">Privacy Policy</a>
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary" [disabled]="!isAgreed || f1.invalid || DOB.value > is18yearold">
+                  <i *ngIf="loading" class="fa fa-sync-alt fa-spin"></i>
+                  REGISTER
+                </button>
+
+              </form>
+              
+            </div>
+            <footer>
+              <div class="row">
+                <div class="col-sm-8">
+                  Copyright &copy; 2020 <a href="https://www.hafizbros.com" target="_blank">Hafiz BROS</a>. &nbsp; <a href="https://www.hafizbros.com/gb/en/term.php" target="_blank" class="text_12">Terms & Conditions</a> | <a href="https://www.hafizbros.com/gb/en/privacy-policy.php" target="_blank" class="text_12">Privacy Policy</a>
+                </div>
+                <div class="col-sm-4 ">
+                  Powered by : <a href="http://softtechmedia.com" target="_blank" class="font_bold under_line">STM</a>
+                </div>
+              </div>
+            </footer>
+          </div>
+          
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div bsModal #modal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-child-name">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="dialog-child-name" class="modal-title pull-left">Timeout</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+            <span aria-hidden="true">&nbsp; &times; &nbsp;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p>Your session is expired !</p>
+              <button type="button" class="btn btn-primary" (click)="modal.hide()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>-->
+</div>

@@ -1,0 +1,52 @@
+
+<div class="container-fluid">
+    <h4 class="mt-4">Category list</h4>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">Category list</li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-table mr-1"></i>Category List</div>
+       
+        <div class="card-body">
+            <div class="row">
+                <div  *ngIf="SuccessMessage.length>0" class="alert alert-success alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  {{SuccessMessage}}
+              </div>
+              <div  *ngIf="ErrorMessage.length>0" class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                {{ErrorMessage}}
+            </div>
+              </div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cat of categorylist;">
+               <td>
+{{cat.id}}
+               </td>
+               <td>
+                   <img src="{{cat.image}}" width="200px">
+            </td>
+            <td>
+                <a  [routerLink]="['/private/updatecategory', cat.id]" class="button btn-primary">Update</a>
+                <a  (click)="delete(cat.id)"  class="button btn-danger">Remove</a>
+            </td>
+           </tr>
+           
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

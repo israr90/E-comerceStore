@@ -1,0 +1,77 @@
+
+<div class="container-fluid">
+    <h4 class="mt-4">Product list</h4>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">Product list</li>
+    </ol>
+  
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-table mr-1"></i>Product List</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>   <th>date</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let prod of productlist">
+                            <td>
+                                {{
+                                    prod.date
+                                }}
+                         </td>
+                         <td>
+{{prod.title}}
+               </td>
+               <td>
+                   {{
+                    prod.category
+                   }}
+                  
+            </td>
+            
+         <td>
+            {{
+                prod.description
+            }}
+           
+     </td>
+     <td>
+        {{
+            prod.price_per_piece
+        }}
+       
+ </td>
+ <td>
+    {{
+        prod.stock
+    }}
+   
+</td>
+            <td>
+              
+                <img src="{{prod.image}}" width="200px">
+         </td>
+         <td> 
+            <a [routerLink]="['/private/updateproduct', prod.id]" class="button btn-primary">Update</a>
+            <a  (click)="delete(prod.id)"  class="button btn-danger">Remove</a>
+          
+
+        </td>
+           </tr>
+           
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

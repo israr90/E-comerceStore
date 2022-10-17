@@ -1,0 +1,58 @@
+<br>
+<br>
+
+
+
+<section id="contact" class="section-bg">
+                <div class="col-md-12">
+      <div class="form">
+        <form novalidate #f="ngForm" (ngSubmit)="onSubmit()">
+                <div class="container">
+                    <div class="card mb-4">
+
+                        <div class="card-body">
+               <div class="section-header">
+                <h3>Add Shipping Method</h3>
+                <p>Please enter below all information related to shiping method</p>
+                <hr>
+              </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <input type="text" name='Title'  class="form-control" id="Title" placeholder="Enter Title" 
+                      [(ngModel)]="shipMethod.title"
+                      required #title="ngModel"
+                   />
+                      <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" name='duration'  class="form-control" id="duration" placeholder="Enter duration" 
+                      [(ngModel)]="shipMethod.duration"
+                      required #duration="ngModel"
+                   />
+                      <div class="validate"></div>
+                    </div>
+                  
+                    <div class="form-group col-md-6">
+                      <input type="number" name='price'  class="form-control" id="price" placeholder="Enter price" 
+                      [(ngModel)]="shipMethod.price"
+                       #duration="ngModel"/>
+                  
+                      <div class="validate"></div>
+                    </div>
+                  
+                 
+                
+                  <div class="text-center"><button type="submit" class="btn btn-primary">Submit</button></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        </form>
+      </div> 
+
+
+ 
+
+</div>
+</section>

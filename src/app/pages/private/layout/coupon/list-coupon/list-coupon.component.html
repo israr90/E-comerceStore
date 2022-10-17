@@ -1,0 +1,52 @@
+
+<div class="container-fluid">
+    <h4 class="mt-4">Coupon list</h4>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+        <li class="breadcrumb-item active">Coupon list</li>
+    </ol>
+
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-table mr-1"></i>Coupon List</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>   <th>Expiry date</th>
+                            <th>Type</th>
+                            <th>Value</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cat of couponlist;">
+                            <td>
+                                {{
+                                    cat.expiry_date
+                                }}
+                               
+                         </td>
+               <td>
+{{cat.type}}
+               </td>
+               <td>
+                   {{
+                       cat.value
+                   }}
+                  
+            </td>
+            <td>
+
+                <a  [routerLink]="['/private/updatecoupon', cat.id]" class="button btn-primary">Update</a>
+                <a   (click)="delete(cat.id)"  class="button btn-danger">Remove</a>
+            </td>
+            
+        
+           </tr>
+           
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

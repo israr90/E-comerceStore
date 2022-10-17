@@ -1,0 +1,145 @@
+<br>
+<br>
+
+
+
+<section id="contact" class="section-bg">
+                <div class="col-md-12">
+      <div class="form">
+        <form novalidate #f="ngForm" (ngSubmit)="onSubmit()">
+                <div class="container">
+                    <div class="card mb-4">
+
+                        <div class="card-body">
+               <div class="section-header">
+                <h3>Add Product</h3>
+                <p>Please enter below all information related to Product</p>
+                <hr>
+                <div class="row">
+                  <div  *ngIf="SuccessMessage.length>0" class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{SuccessMessage}}
+                </div>
+                <div  *ngIf="ErrorMessage.length>0" class="alert alert-danger alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  {{ErrorMessage}}
+              </div>
+                </div>
+              </div>
+
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                  
+
+                      <select id="category" class="form-control" [(ngModel)]="product.category" name="category" #category="ngModel"
+                      required >
+                <option value="" selected="selected">-- Select category --</option>
+                <option *ngFor="let cat of categorylist" [ngValue]="cat.id">
+                  {{ cat.id }}
+                </option>
+              </select>
+
+
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="date" name='date'  class="form-control" id="date" placeholder="Enter date" 
+                      [(ngModel)]="product.date"
+                      required #date="ngModel"/>
+                    </div>
+                  
+                    <div class="form-group col-md-6">
+                      <input type="text" name='title'  class="form-control" id="title" placeholder="Enter title" 
+                      [(ngModel)]="product.title"
+                      required #title="ngModel"/>
+                      <div class="validate"></div>
+                    </div>
+                  
+                    <div class="form-group col-md-6">
+
+                      <input type="text" name='title'  class="form-control" id="origin" placeholder="Enter origin" 
+                      [(ngModel)]="product.origin"
+                      required #origin="ngModel"/>
+
+                    </div>
+                  
+                    <div class="form-group col-md-6">
+                      <input type="number" name='price_per_piece'  class="form-control" id="price_per_piece" placeholder="Enter price_per_piece" 
+                      [(ngModel)]="product.price_per_piece"
+                      required #price_per_piece="ngModel"/>
+                      <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="number" name='stock'  class="form-control" id="stock" placeholder="Enter stock" 
+                      [(ngModel)]="product.stock"
+                      required #stock="ngModel"/>
+                      <div class="validate"></div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" name='storage'  class="form-control" id="storage" placeholder="Enter storage" 
+                      [(ngModel)]="product.storage"
+                      required #storage="ngModel"/>
+                    </div>
+                    <div class="form-group col-md-12">
+
+
+                      <div class="box card">
+                        <label>
+                          <input
+                            type="file"
+                            class="text-nowrap text-truncate dropify"
+                            (change)="selectFile($event)"
+                          />
+                        </label>
+                        <br>
+                        <button
+                          class="btn btn-info btn-sm"
+                          [disabled]="!selectedFiles"
+                          (click)="upload()"
+                        >
+                          Upload
+                        </button>
+                      
+                        <div *ngIf="currentFileUpload" class="progress mt-2">
+                          <div
+                            class="progress-bar progress-bar-striped"
+                            role="progressbar"
+                            attr.aria-valuenow="{{ percentage }}"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                            [ngStyle]="{ width: percentage + '%' }"
+                            [ngClass]="{
+                          'bg-success': percentage > 70,
+                          'bg-info': percentage > 40 && percentage < 70,
+                          'bg-warning': percentage > 20 && percentage < 40,
+                          'bg-danger': percentage > 0 && percentage < 20
+                          }"
+                          >
+                            {{ percentage }}%
+                          </div>
+                        </div>
+                      
+                      </div>
+                      </div>
+
+                    <div class="form-group col-md-12">
+                      <input type="text" name='description'  class="form-control" id="description" placeholder="Enter description" 
+                      [(ngModel)]="product.description"
+                      required #description="ngModel"/>
+                    
+                    </div>
+                  
+                
+                  <div class="text-center"><button type="submit" class="btn btn-primary">Submit</button></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        </form>
+      </div> 
+
+
+ 
+
+</div>
+</section>

@@ -1,0 +1,84 @@
+<body class="bg-primary">
+    <div class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header">
+                                        <h3 class="text-center font-weight-light my-4">
+                                            <b>
+                                                Account Login
+                                            </b>
+                                        </h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <section>
+                                                <hr />
+                                                <form novalidate #f="ngForm" (ngSubmit)="onSubmit()">
+
+                                                    
+                                             
+
+                                                <div class="form-group" [ngClass]="{
+                                                    'has-error': email.invalid && (email.dirty || email.touched),
+                                                    'has-success': email.valid && (email.dirty || email.touched)
+                                                  }">
+                                                  <div class="col-md-12">
+                
+                                  <input type="text" class="form-control" placeholder="Email" aria-describedby="" name="Email" [(ngModel)]="user.Email"
+                                         required #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                          </div>
+                                        </div>
+
+                                                <div class="form-group">
+                                                 
+                                                    <div class="col-md-12">
+                                                        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.Password"
+                           aria-describedby="" required minlength="6" #password="ngModel" name="Password">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <div class="checkbox">
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" value="Log in" class="btn btn-default" />
+                                                    </div>
+                                                </div>
+                                             </form>
+                                        </section>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    </body>
